@@ -1,4 +1,10 @@
 <div class="d-flex">
-  <strong class="m-2">Search:</strong>
-  <input type="text" class="form-control" placeholder="Search Gifs...">
+    <strong class="m-2">Search:</strong>
+
+    <!-- keyup.enter = aplica solo cuando press enter -->
+    <input type="text" class="form-control"
+    placeholder="Search Gifs..."
+    (keyup.enter)="searchTag()"
+    #txtTagInput>
+
 </div>
