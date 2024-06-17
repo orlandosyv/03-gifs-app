@@ -3,15 +3,12 @@
   <hr class="text-white">
 
   <div class="list-group list-reset">
-    <button *ngFor="let tag of tags; let i = index" class="list-group-item list-group-item-action my-1">
+    <button *ngFor="let tag of tags; let i = index"
+      (click)="searchFromSidebar(tag)"
+      class="list-group-item list-group-item-action my-1">
         <span class="text-secondary">{{i + 1}}. </span>
         <strong>{{tag | titlecase }}</strong>
     </button>
   </div>
-
-
-
-
-
 
 </div>

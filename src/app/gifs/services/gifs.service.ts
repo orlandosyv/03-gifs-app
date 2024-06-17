@@ -36,7 +36,7 @@ export class GifsService {
     this.organizeHistory(tag);
 
     const params = new HttpParams().set('api_key', this.ApiKey)
-      .set('limit', 10)
+      .set('limit', 12)
       .set('q', tag)
 
     this.http.get<SearchResponse>(`${this.ApiURL}/search`, { params })
@@ -44,12 +44,20 @@ export class GifsService {
         this.gifsList = resp.data;
         console.log({gifs: this.gifsList})
       });
-
-
-
-    // fetch(
-    //   )
-    //   .then(resp => resp.json())
-    //   .then(data => console.log(data));
   }
+
+  public searchFromHistory(tag: string): void{
+    const params = new HttpParams()
+      .set('api_key', this.ApiKey)
+      .set('limit', 12)
+      .set('q', tag);
+
+    this.http
+      .get<SearchResponse>(`${this.ApiURL}/search`, { params })
+      .subscribe((resp) => {
+        this.gifsList = resp.data;
+        console.log({ gifs: this.gifsList });
+      });
+  }
+
 }

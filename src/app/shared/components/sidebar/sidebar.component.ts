@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { GifsService } from '../../../gifs/services/gifs.service';
 
 @Component({
@@ -7,11 +7,14 @@ import { GifsService } from '../../../gifs/services/gifs.service';
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent {
-  constructor(private gifsService: GifsService) { }
+  constructor(private gifsService: GifsService) {}
 
-  get tags() {
+  get tags(): string[] {
     return this.gifsService.tagsHistory;
   }
 
+  public searchFromSidebar(tag: string): void {
+    this.gifsService.searchFromHistory(tag);
+  }
 
 }
